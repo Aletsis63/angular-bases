@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 
 import { CounterModule } from './counter/counter.module';
 import { HeroesModule } from './heroes/heroes.module';
+import { DbzModule } from './dbz/dbz.module';
+import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -17,10 +19,12 @@ import { HeroesModule } from './heroes/heroes.module';
     BrowserModule,
     CounterModule,
     HeroesModule,
-    AppRoutingModule
+    AppRoutingModule,
+    DbzModule,
   ],
   providers: [
-    provideClientHydration()
+    // provideClientHydration()
+    {provide: LocationStrategy, useClass:PathLocationStrategy}
   ],
   bootstrap: [AppComponent]
 })
